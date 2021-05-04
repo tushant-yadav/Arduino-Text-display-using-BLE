@@ -33,7 +33,12 @@ void shiftlines(String (& line)[8]){
 
 void setup() {
 //Display Setup
-  Serial.begin(115200);
+  
+  pinMode(2,INPUT);
+  pinMode(3,OUTPUT)
+  
+  bt.begin(115200);  /* Define baud rate for software serial communication */
+  Serial.begin(115200); /* Define baud rate for serial communication */
 
   if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // Address 0x3D for 128x64
     Serial.println(F("SSD1306 allocation failed"));
@@ -46,8 +51,6 @@ void setup() {
   display.setTextColor(WHITE);
   display.setCursor(0, 0);
 
-  bt.begin(9600);  /* Define baud rate for software serial communication */
-  //Serial.begin(9600); /* Define baud rate for serial communication */
 }
 
 void loop() { 

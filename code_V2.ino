@@ -18,6 +18,7 @@ String line[8] = {""};
 int index=0;
 
 void printlines(String lines[]){
+  display.setCursor(0, 0);
   for(int i=0;i<8;i++){
     display.println(lines[i]);
     display.setCursor(0,8*i);
